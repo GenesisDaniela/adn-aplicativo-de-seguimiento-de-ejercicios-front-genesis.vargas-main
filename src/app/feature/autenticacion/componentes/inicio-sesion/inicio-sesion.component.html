@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Inicio de sesión</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+      <div class="form-group row">
+        <label for="correo" class="col-sm-2 col-form-label">Correo:</label>
+        <div class="col-sm-10">
+          <input validar type="text" id="correo" name="correo" placeholder="user@gmail.com" class="form-control" formControlName="correo">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="contrasenia" class="col-sm-2 col-form-label">Contraseña:</label>
+        <div class="col-sm-10">
+          <input validar type="password" id="contrasenia" name="contrasenia" placeholder="***********" class="form-control" formControlName="contrasenia">
+        </div>
+      </div>
+      <div class="form-group text-center">
+        <span>¿No tienes cuenta aún?</span><a routerLink="/registro"> Registrate aquí</a>
+      </div>
+      <div class="alert alert-success alert-centered" *ngIf="esInformacionCorrecta===1" role="alert">
+        Inicio de sesión exitoso
+      </div>
+      <div class="alert alert-danger alert-centered" *ngIf="esInformacionCorrecta===0" role="alert">
+        Datos incorrectos
+      </div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary" id="btn-iniciar-sesion">Iniciar sesión</button>
+      </div>
+    </form>
+  </div>
+  

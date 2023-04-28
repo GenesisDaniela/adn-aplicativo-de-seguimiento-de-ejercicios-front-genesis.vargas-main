@@ -1,0 +1,30 @@
+<h1 class="text-center mb-5" id="rutinas-titulo">Listado de rutinas</h1>
+
+<div id="rutinas" class="mt-5 mb-5 mx-md-3">
+  <ul class="list-group mb-5 p-5">
+    <li class="list-group-item" *ngFor="let item of listaRutinas | async">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="d-flex align-items-center">
+            <span class="font-weight-bold">Id:</span>
+            <span class="ml-2">{{ item.id }}</span>
+          </div>
+          <div class="d-flex align-items-center mt-2">
+            <span class="font-weight-bold">Objetivo:</span>
+            <span class="ml-2">{{ item.objetivo }}</span>
+          </div>
+          <div class="d-flex align-items-center mt-2">
+            <span class="font-weight-bold">Descripción:</span>
+            <span class="ml-2">{{ item.descripcion }}</span>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="d-flex justify-content-end">
+            <a [routerLink]="['/rutina/detalle/',item.id]" class="btn btn-sm btn-primary mr-2">Detalles 📑</a>
+            <a [routerLink]="['/rutina/editar/',item.id]" class="btn btn-sm btn-primary">Editar ✏️</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

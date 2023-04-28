@@ -1,0 +1,63 @@
+<div class="container">
+    <h1 class="text-center">Editar rutina</h1>
+    <a routerLink="/rutina/listar" class="btn btn-secondary mb-3">Volver</a>
+    <form [formGroup]="rutinaForm">
+      <div class="form-group row">
+        <label for="objetivo" class="col-sm-2 col-form-label">Objetivo:</label>
+        <div class="col-sm-4">
+          <input valid type="text" id="objetivo" name="objetivo" placeholder="Objetivo de la rutina" class="form-control" formControlName="objetivo">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="descripcion" class="col-sm-2 col-form-label">Descripción:</label>
+        <div class="col-sm-4">
+          <input valid type="text" id="descripcion" name="descripcion" placeholder="descripcion de la rutina" class="form-control" formControlName="descripcion">
+        </div>
+      </div>
+      <h2 class="text-center">Lista de planes</h2>
+      <div class="alert alert-warning alert-centered" *ngIf="esInformacionCorrecta===3" role="alert">
+        No puedes agregar más planes
+      </div>
+      <button id="botonAgregar" class="btn btn-primary mt-3" (click)="construirFormularioPlan()">Agregar plan</button>
+        <button id="botonEliminar" class="btn btn-primary mt-3 eliminar" (click)="eliminarPlan()">Eliminar plan</button>
+       <form *ngFor="let planForm of planForm" [formGroup]="planForm" (ngSubmit)="crear()">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Series:</label>
+          <div class="col-sm-4">
+            <input validar type="number" id="series" name="series" placeholder="series" class="form-control" formControlName="series">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Peso:</label>
+          <div class="col-sm-4">
+            <input validar type="number" id="peso" name="peso" placeholder="peso ejercicio" class="form-control" formControlName="peso">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Repeticiones:</label>
+          <div class="col-sm-4">
+            <input validar type="number" id="repeticiones" name="repeticiones" placeholder="repeticiones" class="form-control" formControlName="repeticiones">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Ejercicio:</label>
+          <div class="col-sm-4">
+            <select validar name="ejercicio" id="ejercicio" formControlName="ejercicio" class="form-control">
+              <option *ngFor="let ejercicio of listaEjercicio | async" [ngValue]="ejercicio.id">{{ejercicio.nombre}}</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+      </form>
+      <div class="alert alert-success alert-centered" *ngIf="esInformacionCorrecta===1" role="alert">
+        Rutina editada correctamente
+      </div>
+      <div class="alert alert-danger alert-centered" *ngIf="esInformacionCorrecta===0" role="alert">
+        Datos incorrectos
+      </div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary" id="botonEditarRutina" (click)="crear()">Guardar</button>
+      </div>
+    </form>
+  </div>
+  

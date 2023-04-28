@@ -1,0 +1,53 @@
+<div class="container">
+  <h1 class="text-center mt-5 mb-3">Detalle de rutina {{rutina.objetivo}}  <a routerLink="/rutina/listar" class="btn btn-secondary mb-3">Volver</a></h1>
+  
+  <h3 class="text-center mb-5">Rutina {{idRutina}}</h3>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Descripción:</h4>
+          <p class="card-text">{{rutina.descripcion}}</p>
+        </div>
+      </div>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Objetivo:</h4>
+          <p class="card-text">{{rutina.objetivo}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="text-center mb-4">Planes</h3>
+  <p *ngIf="planes.length === 0" class="text-center mb-5">No cuenta con planes agregados</p>
+  <ul class="list-unstyled row" *ngIf="planes.length >0">
+    <li class="col-md-6 mb-4" *ngFor="let item of planes">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title mb-4">ID: {{item.id}}</h4>
+          <p class="card-text mb-2">Peso: {{item.peso}}</p>
+          <p class="card-text mb-2">Series: {{item.series}}</p>
+          <p class="card-text mb-2">Repeticiones: {{item.repeticiones}}</p>
+          <h5 class="card-subtitle mb-3 mt-4">Ejercicio:</h5>
+          <table class="table">
+            <caption>Detalle ejercicio</caption>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Sección de cuerpo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{item.ejercicio.id}}</td>
+                <td>{{item.ejercicio.nombre}}</td>
+                <td>{{item.ejercicio.seccionCuerpo}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

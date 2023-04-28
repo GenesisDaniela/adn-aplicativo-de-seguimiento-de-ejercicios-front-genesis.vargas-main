@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Registro de usuario</h1>
+    <form [formGroup]="registroForm" (ngSubmit)="registrarUsuario()">
+        <div class="form-group row">
+        <label for="correo" class="col-sm-2 col-form-label">Nombre:</label>
+        <div class="col-sm-10">
+            <input validar type="text" id="nombre" name="nombre" placeholder="Génesis" class="form-control" formControlName="nombre">
+        </div>
+        </div>
+        <div class="form-group row">
+        <label for="peso" class="col-sm-2 col-form-label">Peso:</label>
+        <div class="col-sm-10">
+            <input validar type="number" id="peso" name="peso" placeholder="64" class="form-control" formControlName="peso">
+        </div>
+        </div>
+        <div class="form-group row">
+        <label for="fechaNacimiento" class="col-sm-2 col-form-label">Fecha Nacimiento:</label>
+        <div class="col-sm-10">
+            <input validar type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="2001-11-23" class="form-control" formControlName="fechaNacimiento">
+        </div>
+        </div>
+      <div class="form-group row">
+        <label for="correo" class="col-sm-2 col-form-label">Correo:</label>
+        <div class="col-sm-10">
+          <input validar type="text" id="correo" name="correo" placeholder="user@gmail.com" class="form-control" formControlName="correo">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="contrasenia" class="col-sm-2 col-form-label">Contraseña:</label>
+        <div class="col-sm-10">
+          <input validar type="password" id="contrasenia" name="contrasenia" placeholder="***********" class="form-control" formControlName="contrasenia">
+        </div>
+      </div>
+      <div class="form-group text-center">
+        <span>¿Ya tienes cuenta?</span><a routerLink="/inicio-sesion">Inicia sesión aquí</a>
+      </div>
+      <div class="alert alert-success alert-centered" *ngIf="esInformacionCorrecta===1" role="alert">
+        Inicio de sesión exitoso
+      </div>
+      <div class="alert alert-danger alert-centered" *ngIf="esInformacionCorrecta===0" role="alert">
+        Datos incorrectos
+      </div>
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary" id="btn-registro">Registrar usuario</button>
+      </div>
+    </form>
+  </div>
+  
